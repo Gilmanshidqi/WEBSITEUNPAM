@@ -1,0 +1,96 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page 2 UAS</title>
+  <script>
+    function kirimData() {
+      var nim = document.getElementsByName('nim')[0].value;
+      var nama = document.getElementsByName('nama')[0].value;
+      var kelas = document.getElementsByName('kelas')[0].value;
+      var jkel = document.querySelector('input[name="jkel"]:checked');
+      var status = document.querySelector('input[name="status"]:checked');
+      var agama = document.getElementsByName('agama')[0].value;
+      var alamat = document.getElementsByName('ket')[0].value;
+
+      // Validasi sederhana
+      if (nim === "" || nama === "" || !jkel || !status || agama === "" || alamat === "") {
+        alert("Semua kolom harus diisi!");
+        return; 
+      }
+
+      // Tampilkan data yang telah diisi
+      alert("Data yang dikirim:\nNIM: " + nim + "\nNama : " + nama  + "\nkelas : " +  kelas + "\nJenis Kelamin : " + jkel.value + "\nStatus : " + status.value + "\nAgama : " + agama + "\nAlamat : " + alamat);
+
+      // Redirect ke halaman hasil pendaftaran
+      window.location.href = 'page2.html';
+    }
+  </script>
+  <style>
+    body{
+      background: url(unpam.jpeg) center fixed;
+      background-size: cover;
+    }
+    h1{
+        text-align: center;
+    }
+
+    form{
+        color: blue;
+        text-transform: uppercase;
+        font-style: oblique;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: large;
+    }
+  </style>
+</head>
+<body bgcolor="black">
+  <form>
+    <h1 >FORM PENDAFTARAN MAHASISWA BARU</h1>
+    <hr/>
+    <pre>
+KK          : <input type="text" size="11" name="nim">
+
+NAMA            : <input type="text" size="25" name="nama">
+
+NIK             : <input type="text" size="11" name="kelas">
+
+DOMISILI        : <select name="jurusan" Size="1">
+
+ <option value="Sistem informasi">PAMULANG</option>
+ <option value="Teknik Informatika">PONDOK CABE</option>
+ <option value="Manajemen bisnis">PONDOK RANJI</option>
+ <option value="Teknik Industri">CIPUTAT</option>
+ <option value="Teknik Elektro">BINTARO</option>
+ <option value="Teknik Sipil">KEBAYORAN LAMA</option>
+ <option value="Hukum">BSD</option>
+ <option value="Matematika">LEGOK</option>
+ </select> 
+
+JENIS KELAMIN   : <input type="checkbox" name="jkel" value="Pria">Pria <input type="checkbox" name="jkel" value="Wanita">Wanita
+
+STATUS          : <input type="radio" name="status" value="kawin">Kawin <input type="radio" name="status" value="belumkawin">Belum Kawin
+
+AGAMA           : <select name="agama">
+ <option value="Islam">Islam</option>
+ <option value="Katolik">Katolik</option>
+ <option value="Kristen">Kristen</option>
+ <option value="Hindu">Hindu</option>
+ <option value="Budha">Budha</option>
+ </select>
+
+ALAMAT          :  
+                 <textarea name="ket" rows="3" cols="30"></textarea>
+    </PRE>
+    <br />
+    <input type="button" value="Kirim" onclick="kirimData()" />
+    <input type="reset" value="Ulang" />
+    <br />
+    <br>
+    <input type="button" value="Kembali !" onclick="history.go(-1);" />
+    </br>
+  </form>
+</body>
+</html>
